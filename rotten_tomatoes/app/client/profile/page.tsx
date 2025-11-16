@@ -105,14 +105,14 @@ export default function ProfilePage() {
               <div className="text-[11px] text-neutral-400">Movies Rated</div>
             </div>
           </div>
-
+{/* 
           <div className="mt-6 w-full rounded-2xl border border-neutral-200 bg-neutral-950/70 p-5 text-sm text-neutral-300">
             <div className="mb-1 text-xs font-semibold uppercase tracking-wide text-neutral-100">
               About
             </div>
             
             
-          </div>
+          </div> */}
 
           <div className="mt-8 w-full">
             <div className="mb-4 flex items-center justify-between">
@@ -131,7 +131,9 @@ export default function ProfilePage() {
               </div>
             ) : (
               <div className="grid grid-cols-2 gap-4 pb-4 sm:grid-cols-3 md:grid-cols-4">
-                {favorites.map((fav) => (
+                {favorites.map((fav) =>{
+                  if (!fav.movie) return null;
+                  return (
                   <div
                     key={fav._id}
                     className="overflow-hidden hover:border-red-200 rounded-2xl border border-neutral-800 bg-neutral-950"
@@ -153,7 +155,7 @@ export default function ProfilePage() {
                   </div>
 
                   
-                ))}
+                )})}
               </div>
             )}
           </div>
